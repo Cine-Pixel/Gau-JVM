@@ -9,5 +9,9 @@ public class App {
         Class5 c5 = new Class5(2.5f, 6.6f);
         System.out.println(c5.method1());
         System.out.println(c5.method2());
+
+        Class6 c6 = new Class6(2.5f, 6.5f);
+        System.out.println(c6.method1());
+        System.out.println(c6.method2());
     }
 }

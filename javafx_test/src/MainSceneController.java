@@ -1,18 +1,21 @@
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class MainSceneController {
+public class MainSceneController implements Initializable {
 
     @FXML
     private Button buttonAdd;
@@ -41,6 +44,14 @@ public class MainSceneController {
     @FXML
     private TableColumn<UniItem, String> colAddress;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+    }
+
     @FXML
     void buttonAddClicked(ActionEvent event) {
         String url = "jdbc:mariadb://localhost:3306/university";
@@ -63,10 +74,6 @@ public class MainSceneController {
         String url = "jdbc:mariadb://localhost:3306/university";
         Connection conn;
         tableItems.getItems().clear();
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         try {
             conn = DriverManager.getConnection(url, "root", "");

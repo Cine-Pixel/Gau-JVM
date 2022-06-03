@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StringGeneratorSceneController">
+   <children>
+      <Label layoutX="146.0" layoutY="15.0" text="სტრიქონის გენერატორი">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="74.0" text="ანბანი: " />
+      <Label layoutX="58.0" layoutY="143.0" text="სიტყვების რაოდენობა:" />
+      <TextField fx:id="fieldCharacters" layoutX="59.0" layoutY="101.0" prefHeight="26.0" prefWidth="501.0" promptText="მაგ: აბგდევზთ" />
+      <TextField fx:id="fieldNumOfWords" layoutX="59.0" layoutY="171.0" prefHeight="26.0" prefWidth="502.0" promptText="მაგ: 5" />
+      <Button fx:id="buttonGenerate" layoutX="60.0" layoutY="225.0" mnemonicParsing="false" onAction="#buttonGenerateClicked" prefHeight="26.0" prefWidth="502.0" text="გენერირება" />
+      <Label fx:id="labelResult" layoutX="57.0" layoutY="270.0" text="შედეგი: ">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="textResult" editable="false" layoutX="63.0" layoutY="306.0" prefHeight="112.0" prefWidth="502.0" wrapText="true" />
+   </children>
+</AnchorPane>

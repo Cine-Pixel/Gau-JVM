@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalculatorSceneController">
+   <children>
+      <Label layoutX="229.0" layoutY="38.0" text="კალკულატორი">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="105.0" layoutY="164.0" text="რიცხვები და სიმბოლოები გამოყოფილი უნდა იყოს  ცარიელი სივრცით!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="8.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fieldExpression" layoutX="105.0" layoutY="184.0" prefHeight="26.0" prefWidth="438.0" promptText="მაგ: 2 + 3 * ( 5 / 2 )" />
+      <Label fx:id="labelAnswer" layoutX="105.0" layoutY="105.0" text="პასუხი:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonCalculate" layoutX="567.0" layoutY="184.0" mnemonicParsing="false" onAction="#buttonCalculateClicked" text="გამოთვლა" />
+   </children>
+</AnchorPane>

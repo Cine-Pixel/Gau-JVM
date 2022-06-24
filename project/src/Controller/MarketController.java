@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import Tasks.LoadTask;
+
 public class MarketController implements Initializable {
     @FXML
     private Button btnAdd;
@@ -111,14 +113,7 @@ public class MarketController implements Initializable {
         }
     }
 
-    private void loadGrid(String search) {
-        clearGrid();
-        if (search == "") {
-            products.addAll(getData(""));
-        } else {
-            products.addAll(getData(search));
-        }
-
+    private void updateUI() {
         int column = 0;
         int row = 1;
         try {
@@ -157,6 +152,23 @@ public class MarketController implements Initializable {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void loadGrid(String search) {
+        clearGrid();
+        if (search == "") {
+            // products.addAll(getData(""));
+
+            LoadTask task = new LoadTask();
+            task.setOnSucceeded(ev -> {
+                products.addAll(task.getValue());
+                updateUI();
+            });
+            new Thread(task).start();
+        } else {
+            products.addAll(getData(search));
+            updateUI();
         }
     }
 
